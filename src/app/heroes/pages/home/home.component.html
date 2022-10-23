@@ -1,0 +1,42 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="warn">
+            <button (click)="sidenav.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+            <span>Menú</span>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a routerLink="./listado" (click)="sidenav.toggle()" mat-list-item>
+                <mat-icon color="warn">sort</mat-icon>
+                <span><strong>Listado de Héroes</strong></span>
+            </a>
+
+            <a routerLink="./agregar" (click)="sidenav.toggle()" mat-list-item>
+                <mat-icon color="warn">add</mat-icon>
+                <span><strong>Agregar Héroe</strong></span>
+            </a>
+
+            <a routerLink="./buscar" (click)="sidenav.toggle()" mat-list-item>
+                <mat-icon color="warn">search</mat-icon>
+                <span><strong>Buscar Héroes</strong></span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="dark">
+        <button (click)="sidenav.toggle()" mat-mini-fab color="warn">
+      <mat-icon>menu</mat-icon>
+    </button>
+        <span class="spacer"></span>
+        <span class="span"><strong>Usuario: </strong>{{ auth.usuario }}</span>
+        <button mat-raised-button color="warn" (click)="cerrar()">
+      Cerrar Sesión
+    </button>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
